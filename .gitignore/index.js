@@ -27,10 +27,10 @@ bot.on('message', message => {
 });
 
 function sendError(message, description) {
-        message.channel.send({embed: {
-            color: 15158332
-            description: ":x:" + description
-        }});
+    message.channel.send({embed: {
+        color: 15158332
+        description: ":x:" + description
+    }});
 }
 
 bot.on('message', message => {
