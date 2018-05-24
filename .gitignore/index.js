@@ -27,14 +27,14 @@ bot.on('message', message => {
 });
 
 bot.on("guildMemberRemove", member => {
-    member.guild.channels.find("name", "bienvenue").send(`Hey ${member}, bienvenue sur le serveur :tada::hugging: !`)
+    member.guild.channels.find("name", "arrivé-départ").send(`${member} nous a quitté :cry: !`)
 });
 
 bot.on("guildMemberAdd", member => {
-    member.guild.channels.find("name", "bienvenue").send(`Hey ${member}, bienvenue sur le serveur :tada::hugging: !`)
+    member.guild.channels.find("name", "arrivé-départ").send(`Hey ${member}, bienvenue sur le serveur :tada::hugging: !`)
 });
 
 bot.on("guildMemberAdd", member => {
-    var role = member.guild.roles.find('name', 'Membre');
+    var role = member.guild.roles.find('name', 'Membres');
     member.addRole(role)
 })
