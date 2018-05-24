@@ -26,6 +26,13 @@ bot.on('message', message => {
     }
 });
 
+function sendError(message, description) {
+        message.channel.send({embed: {
+            color: 15158332
+            description: ":x:" + description
+        }});
+}
+
 bot.on('message', message => {
     if(message.content[0] === prefix) {
       let splitMessage = message.content.split(" ");
@@ -33,7 +40,7 @@ bot.on('message', message => {
           if(splitMessage.length === 2)
               message.guild.ban(message.mentions.users.firts());
           else
-              sendError(message, "Erreur";                    
+              sendError(message, "Erreur");                    
       }
     }
 })
