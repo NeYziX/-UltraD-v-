@@ -38,7 +38,7 @@ bot.on('message', message => {
         let splitMessage = message.content.split(" ");
         if(splitMessage[0] === "</ban") {
             if(splitMessage.length === 2)
-               message.guild.ban(message.mentions.users.first());
+                message.guild.ban(message.mentions.users.first());
             else
                 sendError(message, "Erreur");                    
         }
