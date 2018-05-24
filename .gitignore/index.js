@@ -15,7 +15,7 @@ bot.on('message', message => {
 
     if (message.content === prefix + "help") {
         var embed = new Discord.RichEmbed()
-        .setAuthor("Nom", "https://cdn.discordapp.com/attachments/442741695289753611/449270732665651211/natsu.png")
+        .setAuthor("Nom", message.guild.iconURL)
         .setTitle("Commande du UltraROBOT !")
         .addField("</help", "Affiche la liste des commandes du bot !")
         .setFooter("© </UltraDév'>")
