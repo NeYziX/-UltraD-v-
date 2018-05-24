@@ -6,5 +6,5 @@ var prefix = ("<!");
 bot.on("ready", () => {
   
   console.log("Salut"); 
-  bot.user.setActivity("<!help | Site bientôt")
+  bot.user.setGame("<!help | Site bientôt")
 });
