@@ -8,3 +8,5 @@ bot.on("ready", () => {
   console.log("Salut"); 
   bot.user.setGame("<!help | Site bientôt")
 });
+
+bot.login(process.env.BOT_TOKEN);
