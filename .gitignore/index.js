@@ -26,21 +26,15 @@ bot.on('message', message => {
     }
 });
 
-function sendError(message, description) {
-    message.channel.send({embed: {
-        color: 15158332
-        description: ":x:" + description
-    }});
-}
+bot.on("guildMemberRemove", member => {
+    member.guild.channels.find("name", "bienvenue").send(`Hey ${member}, bienvenue sur le serveur :tada::hugging: !`)
+});
 
-bot.on('message', message => {
-    if(message.content[0] === prefix) {
-        let splitMessage = message.content.split(" ");
-        if(splitMessage[0] === "</ban") {
-            if(splitMessage.length === 2)
-                message.guild.ban(message.mentions.users.first());
-            else
-                sendError(message, "Erreur");                    
-        }
-    }
+bot.on("guildMemberAdd", member => {
+    member.guild.channels.find("name", "bienvenue").send(`Hey ${member}, bienvenue sur le serveur :tada::hugging: !`)
+});
+
+bot.on("guildMemberAdd", member => {
+    var role = member.guild.roles.find('name', 'Membre');
+    member.addRole(role)
 })
