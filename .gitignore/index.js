@@ -25,3 +25,13 @@ bot.on('message', message => {
     message.channel.sendEmbed(embed)
     }
 });
+
+bot.on('message', message => {
+    if(message.content[0] === prefix) {
+      let splitMessage = message.content.split(" ");
+      if(splitMessage[0] === "</ban") {
+          if(splitMessage.length === 2)
+              message.guild.ban(message.mentions.users.firts());
+      }
+    }
+})
