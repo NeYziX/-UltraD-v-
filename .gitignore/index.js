@@ -9,4 +9,4 @@ bot.on("ready", () => {
   bot.user.setGame("<!help | Site bientôt")
 });
 
-bot.login(process.env.BOT_TOKEN)
+bot.login("process.env.BOT_TOKEN")
