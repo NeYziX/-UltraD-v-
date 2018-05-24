@@ -6,7 +6,7 @@ var prefix = ("<!");
 bot.on("ready", () => {
   
   console.log("Salut"); 
-  bot.user.setGame("<!help | Site bientôt")
+  bot.user.setGame("<!help | Dév' By NeYziX ✨")
 });
 
-bot.login("process.env.BOT_TOKEN")
+bot.login(process.env.BOT_TOKEN);
