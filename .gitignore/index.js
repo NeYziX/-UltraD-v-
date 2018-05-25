@@ -91,8 +91,21 @@ bot.on('message', message => {
                         dispatcher.on('end', e => {
                             console.log('Fin du son');
                         });
-                        
-                  
+                    }).catch(console.log);
                 }
                 else
                 sendError(message, "Erreur, vous devez d'abord rejoindre un salon vocal");
+            }
+            else
+                sendError(message, 'Erreur, problème dans les paramètres');
+        }
+        else if(splitMessage[0] === '<pause') {
+            if(dispatcher !== undefined)
+                dispatcher.pause();
+        }
+        else if(splitMessage[0] === '<resume') {
+            if(dispatcher !== undefined)
+                dispatcher.resume();
+        }
+    }
+})
