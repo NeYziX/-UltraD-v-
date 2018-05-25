@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-var prefix = ("</");
+var prefix = ("<");
 
 bot.on("ready", () => {
   
   console.log("Salut"); 
-  bot.user.setActivity("</help | Dév' By NeYziX ✨")
+  bot.user.setActivity("<help | Dév' By NeYziX ✨")
 });
 
 bot.login(process.env.BOT_TOKEN);
@@ -22,6 +22,16 @@ bot.on('message', message => {
         .setColor("0x6a9ccc")
         .setTimestamp()
         .setThumbnail(message.guild.iconURL)
+    message.channel.sendEmbed(embed)
+    }
+});
+
+bot.on('message', message => {
+
+    if (message.content === prefix + "test") {
+        var embed = new Discord.RichEmbed()
+        .setAuthor("Si vous êtes Dév', cliquez sur la réaction ⚠ ci-dessous :)", message.guild.iconURL)
+        .setColor("0x6a9ccc")
     message.channel.sendEmbed(embed)
     }
 });
