@@ -64,4 +64,11 @@ bot.on("guildMemberAdd", member => {
 bot.on("guildMemberAdd", member => {
     var role = member.guild.roles.find('name', 'Membres');
     member.addRole(role)
-})
+});
+
+function sendError(message, description) {
+    message.channel.send({embed: {
+        color: 15158332,
+        description: ':x: ' + description
+    }});
+}
