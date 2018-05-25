@@ -46,7 +46,7 @@ bot.on('message', message => {
   
     if (message.content === prefix + "membercount") {
         var embed = new Discord.RichEmbed()
-        .setAuthor(":busts_in_silhouette: Membres", message.guild.iconURL)
+        .setAuthor("Membres", "https://cdn.discordapp.com/attachments/438419377335828491/449613403254685706/members.png")
         .setTitle(message.guild.memberCount)
         .setColor("0x6a9ccc")
     message.channel.sendEmbed(embed)
