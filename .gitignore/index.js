@@ -79,4 +79,16 @@ bot.on('message', message => {
         if(splitMessage[0] === '<play') {
             if(splitMessage.length === 2)
             {
-                if(message.member
+                if(message.member.voiceChannel)
+                {
+                    message.member.voiceChannel.join().then(connection => {
+                        dispatcher = connection.playArbitraryInput(splitMessage[1]);
+                        
+                        dispatcher.on('error', e => {
+                            console.log(e);
+                        });
+                        
+                  
+                }
+                else
+                sendError(message, "Erreur, vous devez d'abord rejoindre un salon vocal");
