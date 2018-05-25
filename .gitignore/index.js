@@ -87,6 +87,10 @@ bot.on('message', message => {
                         dispatcher.on('error', e => {
                             console.log(e);
                         });
+                      
+                        dispatcher.on('end', e => {
+                            console.log('Fin du son');
+                        });
                         
                   
                 }
