@@ -35,6 +35,22 @@ bot.on('message', message => {
         .setColor("0x6a9ccc")
     message.channel.sendEmbed(embed)
     }
+    
+    if (message.content === prefix + "mcount") {
+        var embed = new Discord.RichEmbed()
+        .setAuthor(":busts_in_silhouette: Membres", message.guild.iconURL)
+        .setTitle(message.guild.memberCount)
+        .setColor("0x6a9ccc")
+    message.channel.sendEmbed(embed)
+    }
+  
+    if (message.content === prefix + "membercount") {
+        var embed = new Discord.RichEmbed()
+        .setAuthor(":busts_in_silhouette: Membres", message.guild.iconURL)
+        .setTitle(message.guild.memberCount)
+        .setColor("0x6a9ccc")
+    message.channel.sendEmbed(embed)
+    }
 });
 
 bot.on("guildMemberRemove", member => {
