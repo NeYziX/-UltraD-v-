@@ -30,7 +30,8 @@ bot.on('message', message => {
 
     if (message.content === prefix + "test") {
         var embed = new Discord.RichEmbed()
-        .setAuthor("Si vous êtes Dév', cliquez sur la réaction ⚠ ci-dessous :)", message.guild.iconURL)
+        .setAuthor("Pour les Dév', si vous voulez vous démarquer sur le serveur aller dans #rôles :D", message.guild.iconURL)
+        .setFooter("Cordialement, NeYziX ✨")
         .setColor("0x6a9ccc")
     message.channel.sendEmbed(embed)
     }
