@@ -90,10 +90,6 @@ bot.on('message', message => {
         .setColor("0x6a9ccc")
     message.channel.sendEmbed(embed)
     }
-  
-    if (message.content === prefix + "ping"){
-        message.channel.sendMessage("Temps de latence avec le serveur : " + `${message.createdTimestamp - Date.now()}` + "MS");  
-    }
 });
 
 bot.on("guildMemberRemove", member => {
@@ -107,49 +103,4 @@ bot.on("guildMemberAdd", member => {
 bot.on("guildMemberAdd", member => {
     var role = member.guild.roles.find('name', 'Membres');
     member.addRole(role)
-});
-
-function sendError(message, description) {
-    message.channel.send({embed: {
-        color: 15158332,
-        description: ':x: ' + description
-    }});
-}
-
-bot.on('message', message => {
-    if(message.content[0] === prefix) {
-        let splitMessage = message.content.split(" ");
-        if(splitMessage[0] === '<play') {
-            if(splitMessage.length === 2)
-            {
-                if(message.member.voiceChannel)
-                {
-                    message.member.voiceChannel.join().then(connection => {
-                        dispatcher = connection.playArbitraryInput(splitMessage[1]);
-                        
-                        dispatcher.on('error', e => {
-                            console.log(e);
-                        });
-                      
-                        dispatcher.on('end', e => {
-                            dispatcher = undefined;
-                            console.log('Fin du son');
-                        });
-                    }).catch(console.log);
-                }
-                else
-                sendError(message, "Erreur, vous devez d'abord rejoindre un salon vocal");
-            }
-            else
-                sendError(message, 'Erreur, problème dans les paramètres');
-        }
-        else if(splitMessage[0] === '<pause') {
-            if(dispatcher !== undefined)
-                dispatcher.pause();
-        }
-        else if(splitMessage[0] === '<resume') {
-            if(dispatcher !== undefined)
-                dispatcher.resume();
-        }
-    }
 })
