@@ -90,6 +90,10 @@ bot.on('message', message => {
         .setColor("0x6a9ccc")
     message.channel.sendEmbed(embed)
     }
+  
+    if (message.content === prefix + "ping"){
+        message.channel.sendMessage("Temps de latence avec le serveur : " + `${message.createdTimestamp - Date.now()}` + "MS");  
+    }
 });
 
 bot.on("guildMemberRemove", member => {
