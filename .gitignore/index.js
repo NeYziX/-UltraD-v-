@@ -26,45 +26,6 @@ bot.on('message', message => {
     }
 });
 
-bot.on("message", function(message) {
-    if (message.author.equals(bot.user)) return;
-  
-    if (!message.content.startsWith(prefix)) return;
-  
-    var args = message.content.substring(prefix.length).split(" ");
-
-    switch (args[0].toLowerCase()) {
-        case "8ball":
-            let args = message.content.split(" ").slice(1);
-            let tte = args.join(" ")
-            if (!tte){
-        
-        
-            var replys = [
-                "Oui",
-                "Non",
-                "Surement",
-                "Peut-être",
-                "Demande pas à moi"
-            ];
-        
-            let reponse = (replys[Math.floor(Math.random() * replys.length)])
-            var bembed = new Discord.RichEmbed()
-            .setDescription(":8ball: 8ball")
-            .addField("Question :thinking:", tte)
-            .addField("Réponse :kissing_heart:", reponse)
-            message.channel.sendEmbed(bembed)
-            break;
-            case "clear":
-            if (message.member.hasPermission("MANAGE_MESSAGES")){
-                message.channel.fetchMessages()
-                    .then(function(list){
-                        message.channel.bulkDelete(list);
-                }, function(err){message.channel.send("Erreur")})}
-            break
-            }
-});
-
 bot.on('message', message => {
     
     if (message.content === prefix + "mcount") {
