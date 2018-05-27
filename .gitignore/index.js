@@ -15,9 +15,9 @@ bot.on('message', message => {
 
     if (message.content === prefix + "help") {
         var embed = new Discord.RichEmbed()
-        .setAuthor("Nom", message.guild.iconURL)
-        .setTitle("Commande du UltraROBOT !")
-        .addField("</help", "Affiche la liste des commandes du bot !")
+        .setAuthor("HELP", message.guild.iconURL)
+        .setTitle("Commandes du UltraROBOT !")
+        .addField(".help", "Affiche la liste des commandes du bot !")
         .setFooter("© </UltraDév'>")
         .setColor("0x6a9ccc")
         .setTimestamp()
@@ -36,10 +36,19 @@ bot.on('message', message => {
     message.channel.sendEmbed(embed)
     }
     
-    if (message.content === prefix + "role") {
+    if (message.content === prefix + "sdfsdfsdlofjdklfhsd") {
+        var embed = new Discord.RichEmbed()
+        .setAuthor("Nouvelle Annonce", message.guild.iconURL)
+        .setTitle("Maintenant vous pouvez choisir le langage que vous maîtrisez dans #rôles :smile:")
+        .setFooter("Cordialement, NeYziX ✨")
+        .setColor("0x6a9ccc")
+    message.channel.sendEmbed(embed)
+    }
+  
+    if (message.content === prefix + "roles") {
         var embed = new Discord.RichEmbed()
         .setAuthor("Rôles", "https://cdn.discordapp.com/attachments/438419377335828491/449613403254685706/members.png")
-        .setTitle("Choisit le langage que tu métrises :pencil: en mettant la réaction qui convient :smile:")
+        .setTitle("Choisit le langage que tu maîtrises :pencil: en mettant la réaction qui convient :smile:")
         .setColor("0x6a9ccc")
     message.channel.sendEmbed(embed)
     }
