@@ -1,5 +1,14 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+var prefix = (".");
+const YTDL = require("ytdl-core");
+const { get } = require("snekfetch"); 
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+const adapter = new FileSync('database.json');
+const db = low(adapter);
+const talkedRecently = new Set();
+const cooldown = new Set();
 
 var prefix = (".");
 
