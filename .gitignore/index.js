@@ -1,14 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 var prefix = (".");
-const YTDL = require("ytdl-core");
-const { get } = require("snekfetch"); 
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('database.json');
-const db = low(adapter);
-const talkedRecently = new Set();
-const cooldown = new Set();
 
 var prefix = (".");
 
@@ -82,52 +74,4 @@ bot.on("guildMemberAdd", member => {
 bot.on("guildMemberAdd", member => {
     var role = member.guild.roles.find('name', 'Membres');
     member.addRole(role)
-});
-
-bot.on("message", function(message) {
-    if (message.author.equals(bot.user)) return;
-    
-    if (!message.content.startsWith(prefix)) return;
-    
-    var args = message.content.substring(prefix.length).split(" ");
-    
-    switch (args[0].toLowerCase()) {
-        case "kick":
-           let command = message.content.split(" ")[0];
-           const args = message.content.slice(prefix.length).split(/ +/);
-           command = args.shift().toLowerCase();
-    
-               if(!message.member.hasPermission("KICK_MEMBERS")) {
-                   return message.reply("Tu n'as pas la permission de faire cette commande.").catch(console.error);
-               }
-               if(message.mentions.users.size === 0) {
-                   return message.reply("Merci de mentionner l'utilisateur à expluser.").catch(console.error);
-               }
-               let kickMember = message.guild.member(message.mentions.users.first());
-               if(!kickMember) {
-                   return message.reply("Cet utilisateur est introuvable ou impossible à expulser.")
-               }
-               if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
-                   return message.reply("Je n'ai pas la permission KICK_MEMBERS pour faire ceci.").catch(console.error);
-               }
-               kickMember.kick().then(member => {
-                   message.reply(`${member.user.username} a été expulsé avec succès.`).catch(console.error);
-                   message.guild.channels.find("name", "general").send(`**${member.user.username}** a été expulsé du discord par **${message.author.username}**`)
-               }).catch(console.error)
-           break;
-           case "ban":
-           let commande = message.content.split(" ")[0];
-           const argse = message.content.slice(prefix.length).split(/ +/);
-           commande = argse.shift().toLowerCase();
-           if(!message.member.hasPermission("BAN_MEMBERS")) {
-               return message.reply("Tu n'as pas la permission de faire cette commande.").catch(console.error);
-           }
-           const member = message.mentions.members.first();
-           if (!member) return message.reply("Merci de mentionner l'utilisateur à bannir.");
-           member.ban().then(member => {
-               message.reply(`${member.user.username} a été banni avec succès.`).catch(console.error);
-               message.guild.channels.find("name", "general").send(`**${member.user.username}** a été banni du discord par **${message.author.username}**`)
-           }).catch(console.error)
-           break;
-        }
-};
+})
