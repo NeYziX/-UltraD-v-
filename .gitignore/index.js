@@ -47,7 +47,7 @@ bot.on('message', message => {
 });
 
 bot.on("guildMemberRemove", member => {
-    member.guild.channels.find("name", "🔶bienvenue").send(`[-] ${member.user.name}`)
+    member.guild.channels.find("name", "🔶bienvenue").send(`[-] ${member.user.username}`)
 });
 
 bot.on("guildMemberAdd", member => {
