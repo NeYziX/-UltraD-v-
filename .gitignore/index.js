@@ -36,15 +36,6 @@ bot.on('message', message => {
         .setColor("0x6a9ccc")
     message.channel.sendEmbed(embed)
     }
-    
-    if (message.content === prefix + "sdfsdfsdlofjdklfhsd") {
-        var embed = new Discord.RichEmbed()
-        .setAuthor("Nouvelle Annonce", message.guild.iconURL)
-        .setTitle("Maintenant vous pouvez choisir le langage que vous maîtrisez dans #rôles :smile:")
-        .setFooter("Cordialement, NeYziX ✨")
-        .setColor("0x6a9ccc")
-    message.channel.sendEmbed(embed)
-    }
   
     if (message.content === prefix + "membercount") {
         var embed = new Discord.RichEmbed()
