@@ -64,11 +64,11 @@ bot.on('message', message => {
 });
 
 bot.on("guildMemberRemove", member => {
-    member.guild.channels.find("name", "arrivé-départ").send(`${member} nous a quitté :cry: !`)
+    member.guild.channels.find("name", "arrivé-départ").send(`[-] ${member.user.name}`)
 });
 
 bot.on("guildMemberAdd", member => {
-    member.guild.channels.find("name", "arrivé-départ").send(`Hey ${member}, bienvenue sur le serveur :tada::hugging: !`)
+    member.guild.channels.find("name", "arrivé-départ").send(`[+] ${member.user.username}`)
 });
 
 bot.on("guildMemberAdd", member => {
