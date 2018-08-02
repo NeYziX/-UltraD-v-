@@ -19,7 +19,7 @@ bot.on('message', message => {
         .setAuthor("HELP", message.guild.iconURL)
         .setTitle("Commandes du NyXion BOT !")
         .addField(".help", "Affiche la liste des commandes du bot !")
-        .setFooter("© </UltraDév'>")
+        .setFooter("© NyXion")
         .setColor("0x6a9ccc")
         .setTimestamp()
         .setThumbnail(message.guild.iconURL)
